@@ -25,4 +25,3 @@ def test_import_invalid_json():
         subprocess.check_output(
             ["python", "manage.py", "import_data_json", "tests/test_user_activity/Test_JSON_invalid.json"])
         assert "ERROR JSON schema not correct" in str(e.value)
-    assert False
