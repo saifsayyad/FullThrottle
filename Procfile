@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:8000 wsgi:app --log-file - --log-level debug
+web: gunicorn user_activity.wsgi --log-file - --log-level debug
