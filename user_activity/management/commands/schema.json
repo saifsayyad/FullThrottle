@@ -1,0 +1,84 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "required": [
+        "ok",
+        "members"
+    ],
+    "additionalProperties": true,
+    "properties": {
+        "ok": {
+            "$id": "#/properties/ok",
+            "type": "boolean",
+            "default": false
+        },
+        "members": {
+            "$id": "#/properties/members",
+            "type": "array",
+
+            "additionalItems": true,
+            "items": {
+                "anyOf": [
+                    {
+                        "$id": "#/properties/members/items/anyOf/0",
+                        "type": "object",
+                        "default": {},
+                        "required": [
+                            "id",
+                            "real_name",
+                            "tz",
+                            "activity_periods"
+                        ],
+                        "additionalProperties": true,
+                        "properties": {
+                            "id": {
+                                "$id": "#/properties/members/items/anyOf/0/properties/id",
+                                "type": "string"
+                            },
+                            "real_name": {
+                                "$id": "#/properties/members/items/anyOf/0/properties/real_name",
+                                "type": "string"
+                            },
+                            "tz": {
+                                "$id": "#/properties/members/items/anyOf/0/properties/tz",
+                                "type": "string"
+                            },
+                            "activity_periods": {
+                                "$id": "#/properties/members/items/anyOf/0/properties/activity_periods",
+                                "type": "array",
+                                "additionalItems": true,
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/members/items/anyOf/0/properties/activity_periods/items/anyOf/0",
+                                            "type": "object",
+                                            "required": [
+                                                "start_time",
+                                                "end_time"
+                                            ],
+                                            "additionalProperties": true,
+                                            "properties": {
+                                                "start_time": {
+                                                    "$id": "#/properties/members/items/anyOf/0/properties/activity_periods/items/anyOf/0/properties/start_time",
+                                                    "type": "string"
+                                                },
+                                                "end_time": {
+                                                    "$id": "#/properties/members/items/anyOf/0/properties/activity_periods/items/anyOf/0/properties/end_time",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "$id": "#/properties/members/items/anyOf/0/properties/activity_periods/items"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "$id": "#/properties/members/items"
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Activity Data</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'user_activity/upload.css' %}">
+
+</head>
+<body>
+<div class="header">
+    Upload Json files Here
+</div>
+<div class="content">
+        <form method="POST" class="post-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="fileToUpload" id="fileToUpload", accept=".json">
+            <input type="submit" value="Upload Json" name="submit">
+            {% if fileupload %}
+            {% if fileupload == "Success" %}
+            <div class="alert-success">
+            {% endif %}
+            {% if fileupload != "Success" %}
+            <div class="alert-failure">
+            {% endif %}
+              <span class="closebtn" onclick="this.parentElement.style.display='none'; fileupload='';">&times;</span>
+              {{ fileupload }}
+            </div>
+            {% endif %}
+
+        </form>
+</div>
+</body>
+</html>
