@@ -1,1 +1,1 @@
-web: python manage.py runserver
+web: gunicorn --bind 0.0.0.0:5000 wsgi:app
